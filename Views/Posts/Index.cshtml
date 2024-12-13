@@ -1,16 +1,36 @@
 ﻿@model List<Post>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    @foreach(var post in Model)
-    {
-        <p>@post.Title</p>
-    }
-</body>
-</html>
+<div class="row">
+    <div class="col-lg-8">
+        <div class="bg-white p-4">
+            <h1 class="h4 mb-4"> Popular Posts</h1>
+            
+            
+            @foreach (var post in Model)
+            {
+                <div class="card bg-transparent border-0 mb-3">
+                    <div class="row">
+                        <div class="col-4">
+                            <img src="~/img/@post.Image" class="img-fluid rounded" alt="" />
+                        </div>
+                        <div class="col-8">
+                            <h5>
+                                <a href="#" class="btn-link fw-bold">@post.Title</a>
+                            </h5>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla lacinia orci at enim convallis, sed vulputate erat vehicula. Sed pharetra, metus a consequat fermentum, sapien mi pharetra felis, non dignissim nunc nulla non sapien. Nulla facilisi. Nulla et ligula in mi facilisis hendrerit et nec purus. Quisque fringilla viverra dui, vel ullamcorper ante tincidunt at.
+                            </p>
+                            <a href="#" class="badge bg-danger bg-opacity-10 text-danger mb-2 fw-bold">web Development</a>
+                            <a href="#" class="badge bg-danger bg-opacity-10 text-danger mb-2 fw-bold">web Development</a>
+                        </div>
+                    </div>
+                </div>
+                <hr class="my-3" />
+            }
+        </div>
+    </div>
+    <div class="col-lg-8"></div>
+
+</div>
+
+    

@@ -6,9 +6,23 @@
     <title>@ViewData["Title"] - WebApplication1</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/style.css" asp-append-version="true" />
+
     <link rel="stylesheet" href="~/WebApplication1.styles.css" asp-append-version="true" />
+    <link href="/lib/font/bootstrap-icons.css" rel="stylesheet">
+
 </head>
 <body>
-    @RenderBody()
+    <nav class="navbar navbar-expand-lg bg-white shadow-sm">
+        <div class="container">
+            <a href="/" class="navbar-brand">
+                <i class="bi bi-code"></i>  BlogStore
+            </a>
+        </div>
+    </nav>
+    <div class="container mt-3">
+        @RenderBody()
+    </div>
+    
 </body>
 </html>
