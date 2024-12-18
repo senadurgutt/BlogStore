@@ -1,19 +1,28 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using WebApplication1.Data.Abstrac;
 using WebApplication1.Data.Concrete.EfCore;
+using WebApplication1.Models;
 
 namespace WebApplication1.Controllers
 {
     public class PostsController : Controller
     {
-        private IPostRepository _repository;
-        public PostsController(IPostRepository repository)
+        private IPostRepository _postrepository;
+        private ITagRepository _tagrepository;
+        public PostsController(IPostRepository postrepository, ITagRepository tagrepository)
         {
-            _repository = repository;
+            _postrepository = postrepository;
+            _tagrepository = tagrepository;
         }
         public IActionResult Index()
         {
-            return View(_repository.Posts.ToList());
+            return View(
+                new PostsViewModel
+                {
+                    Posts = _postrepository.Posts.ToList(),
+                    Tags = _tagrepository.Tags.ToList(),
+                }
+                );
         }
     }
 }

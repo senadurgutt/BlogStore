@@ -18,6 +18,8 @@ builder.Services.AddDbContext<BlogContext>(options =>
     options.UseSqlServer(connectionString);
 });
 builder.Services.AddScoped<IPostRepository, EfPostRepository>();
+builder.Services.AddScoped<ITagRepository, EfTagRepository>();
+
 var app = builder.Build();
 SeedData.TestVerileriniDoldur(app);
 app.MapGet("/", () => "Hello World");
