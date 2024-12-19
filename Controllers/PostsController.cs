@@ -20,7 +20,6 @@ namespace WebApplication1.Controllers
                 new PostsViewModel
                 {
                     Posts = _postrepository.Posts.ToList(),
-                    Tags = _tagrepository.Tags.ToList(),
                 }
                 );
         }
