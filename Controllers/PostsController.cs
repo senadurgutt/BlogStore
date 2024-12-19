@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using WebApplication1.Data.Abstrac;
 using WebApplication1.Data.Concrete.EfCore;
 using WebApplication1.Models;
@@ -22,6 +23,10 @@ namespace WebApplication1.Controllers
                     Posts = _postrepository.Posts.ToList(),
                 }
                 );
+        }
+        public async Task<IActionResult> Details (int? id)
+        {
+            return View(await _postrepository.Posts.FirstOrDefaultAsync(p =>p.PostId == id));
         }
     }
 }
